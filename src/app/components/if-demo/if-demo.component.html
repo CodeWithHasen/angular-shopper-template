@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <h2>Product Details</h2>
+    <dl>
+        <dt>Name</dt>
+        <dd>Nike Casuals</dd>
+        <dt>Price</dt>
+        <dd>450.00</dd>
+        <dt class="form-switch"><input ngModel name="Preview" #Preview="ngModel" type="checkbox" class="form-check-input"> Show Preview</dt>
+        <dd *ngIf="Preview.value">
+            <img src="assets/shoe.PNG" width="100" height="100">
+        </dd>
+    </dl>
+</div>

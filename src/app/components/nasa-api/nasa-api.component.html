@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="row mb-4">
+            <h3 class="text-center text-decoration-underline">Presenting Nasa API in Card Style</h3>
+            <h2>Mars Rover Photos</h2>
+            <div class="d-flex flex-wrap min-vh-100">
+                <div *ngFor="let item of marsObject.photos" class="car m-2 p-2" style="width: 200px;">
+                    <a [href]="item.img_src" target="_blank"><img [src]="item.img_src" class="card-img-top" height="150"></a>
+                    <div class="card-header">
+                        <h3>{{item.id}}</h3>
+                    </div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>Camera Name</dt>
+                            <dd>{{item.camera.full_name}}</dd>
+                            <dt>Rover Name</dt>
+                            <dd>{{item.rover.name}}</dd>
+                        </dl>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-dark w-100">More Details...</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row mt-4">
+            <h3 class="text-center text-decoration-underline">Presenting Nasa API in Table format</h3>
+            <h2>Mars Rover Photos</h2>
+        <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Photo Id</th>
+                <th>Camera Name</th>
+                <th>Preview</th>
+                <th>Rover Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of marsObject.photos">
+                <td>{{item.id}}</td>
+                <td>{{item.camera.full_name}}</td>
+                <a [href]="item.img_src" target="_blank"><td><img [src]="item.img_src" width="100" height="100"></td></a>
+                <td>{{item.rover.name}}</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+</div>

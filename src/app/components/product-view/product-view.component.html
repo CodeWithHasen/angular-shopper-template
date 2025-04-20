@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <h2>Printer Details</h2>
+    <div class="row">
+        <nav class="col-2">
+            <div class="border border-2 border-primary mb-2" style="width: 55px;">
+                <img (mouseover)="MouseOverView('View1')" src="assets/View1.PNG" width="50" height="50">
+            </div>
+            <div class="border border-2 border-primary mb-2" style="width: 55px;">
+                <img (mouseover)="MouseOverView('View2')" src="assets/View2.PNG" width="50" height="50">
+            </div>
+            <div class="border border-2 border-primary mb-2" style="width: 55px;">
+                <img (mouseover)="MouseOverView('View3')" src="assets/View3.PNG" width="50" height="50">
+            </div>
+            <div class="border border-2 border-primary mb-2" style="width: 55px;">
+                <img (mouseover)="MouseOverView('View4')" src="assets/View4.PNG" width="50" height="50">
+            </div>
+            <div class="border border-2 border-primary mb-2" style="width: 55px;">
+                <img (mouseover)="MouseOverView('View5')" src="assets/View5.PNG" width="50" height="50">
+            </div>
+        </nav>
+        <main class="col-10">
+            <div *ngIf="true; then thenBlock"></div>
+            <ng-template #View1>
+                <img src="assets/View1.PNG" width="400" height="400">
+            </ng-template>
+            <ng-template #View2>
+                <img src="assets/View2.PNG" width="400" height="400">
+            </ng-template>
+            <ng-template #View3>
+                <img src="assets/View3.PNG" width="400" height="400">
+            </ng-template>
+            <ng-template #View4>
+                <img src="assets/View4.PNG" width="400" height="400">
+            </ng-template>
+            <ng-template #View5>
+                <img src="assets/View5.PNG" width="400" height="400">
+            </ng-template>
+        </main>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="dropdown" #dropdownRef>
+  <button 
+    class="btn btn-dark dropdown-toggle"
+    (click)="toggleDropdown()"
+    type="button">
+    <i class="bi bi-globe"></i> English
+  </button>
+
+  <div *ngIf="isOpen" class="dropdown-menu show">
+    <div class="dropdown-item">
+      <a href="https://www.netflix.com/in/"><span>English</span></a>
+    </div>
+    <div class="dropdown-item">
+      <a href="https://www.netflix.com/in-hi/"><span>हिन्दी</span></a>
+    </div>
+    <div class="dropdown-item">
+      <button class="btn btn-link text-white p-0" (click)="handleSignIn()">Sign In</button>
+    </div>
+  </div>
+</div>

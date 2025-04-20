@@ -1,0 +1,139 @@
+body {
+    background: url('/assets/shopping-bg.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header button {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+header span {
+    margin-right: 0px;
+    font-weight: bold;
+}
+
+button.btn:hover {
+    color: red;
+    background-color: transparent !important;
+}
+
+nav.col-2 {
+    position: relative;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.range-slider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 2fr 2.5fr 2.5fr 2.5fr 2.5fr;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+footer span.bi {
+    font-size: 24px;
+    margin-right: 16px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  footer span.bi:hover {
+    color: #ff4c60;
+    transform: scale(1.1);
+  }  
+footer h2 {
+    font-size: 20px;
+    text-align: start;
+}
+
+footer ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+footer li {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.footer-bottom {
+    background-color: black;
+    color: white;
+    border-top: 1px solid gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.col-2,
+.col-10 {
+    border: 1px solid grey;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.col-2 {
+    background-color: #f8f9fa;
+}
+
+.col-10 {
+    background-color: #ffffff;
+}
+
+.range-slider input[type="range"] {
+    width: 100%;
+    max-width: 80%;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    border-radius: 10px;
+    border: none;
+}
+
+.modal-header {
+    background-color: #FF4C60;
+    color: white;
+}
+
+.modal-footer .btn-success {
+    background-color: #28a745;
+    border: none;
+}

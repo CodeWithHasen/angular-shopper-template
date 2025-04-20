@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <h2 class="text-primary">Product Details</h2>
+    <div class="d-flex mb-2">
+    <button (click)="ShowDetails('preview')" class="btn btn-primary me-2">Preview</button>
+    <button (click)="ShowDetails('details')" class="btn btn-primary me-2">Details</button>
+    <button (click)="ShowDetails('description')" class="btn btn-primary me-2">Description</button>
+    <button (click)="ShowDetails('rating')" class="btn btn-primary">Rating</button>
+    </div>
+    <div *ngIf="true; then thenBlock"></div>
+    <ng-template #preview>
+        <img [src]="Product.image" width="200" height="200">
+    </ng-template>
+    <ng-template #details>
+        <dl>
+            <dt>Id</dt>
+            <dd>{{Product.id}}</dd>
+            <dt>Title</dt>
+            <dd>{{Product.title}}</dd>
+            <dt>Price</dt>
+            <dd>{{Product.price}}</dd>
+        </dl>
+    </ng-template>
+    <ng-template #description>
+        <dl>
+            <dt>Description</dt>
+            <dd>{{Product.description}}</dd>
+        </dl>    
+    </ng-template>
+    <ng-template #rating>
+        <dl>
+            <dt>Rating</dt>
+            <span class="bi bi-star-fill text-success"></span>
+            {{Product.rating.rate}} {{Product.rating.count}}
+        </dl>
+    </ng-template>
+</div>

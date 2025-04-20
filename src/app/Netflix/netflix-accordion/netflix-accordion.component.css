@@ -1,0 +1,31 @@
+.accordion-container {
+    max-width: 700px;
+    margin: auto;
+  }
+  
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 16px;
+    margin-bottom: 4px;
+    cursor: pointer;
+  }
+  
+  .accordion-body {
+    background-color: #444;
+    color: #ddd;
+    padding: 16px;
+    border-left: 4px solid red;
+  }
+  
+  .toggle-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+  

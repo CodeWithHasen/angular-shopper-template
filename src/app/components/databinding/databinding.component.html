@@ -1,0 +1,43 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <h3>Register Product</h3>
+            <dl>
+                <dt>Name</dt>
+                <dd><input type="text" [(ngModel)]="Product.Name" class="form-control"></dd>
+                <dt>Price</dt>
+                <dd><input type="text" [(ngModel)]="Product.Price" class="form-control"></dd>
+                <dt>Stock</dt>
+                <dd class="form-switch">
+                    <input type="checkbox" [(ngModel)]="Product.Stock" class="form-check-input"> Available
+                </dd>
+                <dt>City</dt>
+                <dd>
+                    <select [(ngModel)]="Product.City" class="form-select">
+                        <option>Selec City</option>
+                        <option>Delhi</option>
+                        <option>Hydrabad</option>
+                        <option>Kolkata</option>
+                    </select>
+                </dd>
+            </dl>
+            <button (click)="UpdateClicked()" class="btn btn-primary w-100">Update Product</button>
+        </div>
+        <div class="col-9">
+            <div class="position-absolute end-0 w-50">
+                <h3>Product Details</h3>
+                <dl class="row">
+                    <dt class="col-3">Name</dt>
+                    <dd class="col-9" [innerText]="UpdatedProduct.Name"></dd>
+                    <dt class="col-3">Price</dt>
+                    <dd class="col-9">{{UpdatedProduct.Price}}</dd>
+                    <dt class="col-3">Stock</dt>
+                    <dd class="col-9">{{(UpdatedProduct.Stock==true)?"Available":"Out of Stock"}}</dd>
+                    <dt class="col-3">City</dt>
+                    <dd class="col-9">{{UpdatedProduct.City}}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

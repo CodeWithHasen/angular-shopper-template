@@ -1,0 +1,52 @@
+<div class="carousel-container">
+  <h4 class="text-white">Trending Now</h4>
+
+  <div id="netflixCarousel" class="carousel slide mt-3" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div
+        class="carousel-item"
+        *ngFor="let group of groupedImages; let i = index"
+        [class.active]="i === 0"
+      >
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-2">
+          <div class="col" *ngFor="let src of group">
+            <img [src]="src" class="d-block w-100 rounded shadow" alt="Movie" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#netflixCarousel"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#netflixCarousel"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      <button
+        *ngFor="let _, i of groupedImages; let isFirst = first"
+        type="button"
+        data-bs-target="#netflixCarousel"
+        [attr.data-bs-slide-to]="i"
+        [class.active]="isFirst"
+        [attr.aria-label]="'Slide ' + (i + 1)"
+      ></button>
+    </div>
+  </div>
+</div>

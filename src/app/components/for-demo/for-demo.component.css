@@ -1,0 +1,7 @@
+#choose {
+    border: 2px solid gray;
+    width: 150px;
+    padding: 2px;
+    height: 75px;
+    overflow: auto;
+}

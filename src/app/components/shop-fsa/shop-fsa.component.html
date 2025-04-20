@@ -1,0 +1,176 @@
+<div class="container-fluid">
+    <header class="d-flex justify-content-between p-2">
+        <div class="brand-name">Shopper.</div>
+        <div>
+            <button (click)="CategoryChanged('all')" class="btn">Home</button>
+            <button (click)="CategoryChanged('electronics')" class="btn">Electronics</button>
+            <button (click)="CategoryChanged('jewelery')" class="btn">Jewelery</button>
+            <button (click)="CategoryChanged('men\'s clothing')" class="btn">Men's Fashion</button>
+            <button (click)="CategoryChanged('women\'s clothing')" class="btn">Women's Fashion</button>
+        </div>
+        <div>
+            <button class="btn"><span class="bi bi-search"></span></button>
+            <button class="btn"><span class="bi bi-person"></span></button>
+            <button class="btn"><span class="bi bi-heart"></span></button>
+            <button class="btn position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+                <span class="bi bi-cart"></span>
+                <span class="badge rounded rounded-circle bg-danger text-white position-absolute">{{ CartItemsCount }}</span>
+              </button>              
+        </div>
+    </header>
+    <div class="bg-dark text-white text-center mt-2 p-2">
+        ⚡️ Happy Holiday Deals on Everything ⚡️
+    </div>
+    <section class="row mt-2">
+        <nav class="col-2">
+            <div>
+                <label class="form form-label mb-2"><h4>Select Category</h4></label>
+                <div>
+                    <select (change)="CategoryChanged(Category.value)" name="CategoryName" ngModel #Category="ngModel" class="form-select">
+                        <option *ngFor="let category of Categories" [value]="category">
+                            {{category | uppercase}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="range-slider">
+                <label><strong>Price Range: &#8377; {{ selectedPrice }}</strong></label>
+                <input type="range" class="form-range" min="5" max="1200" step="25" [value]="selectedPrice" (input)="onPriceChange($event)">
+              </div>                       
+        </nav>
+        <main class="col-10 d-flex flex-wrap overflow-auto" style="height: 450px;">
+            <div *ngFor="let item of filteredProducts" class="card m-2 p-2" style="width: 200px;">
+                <img [src]="item.image" class="card-img-top" height="160">
+            <div class="card-header" style="height: 140px;">
+                <p>{{item.title}}</p>
+            </div>
+            <div class="card-body">
+                <dl>
+                    <dt>Price</dt>
+                    <dd>{{item.price}}</dd>
+                    <dt>Rating</dt>
+                    <dd><span class="bi bi-star-fill text-success"></span>{{item.rating.rate}} [{{item.rating.count}}]</dd>
+                </dl>
+            </div>
+            <div class="card-footer">
+                <button (click)="AddToCartClick(item.id)" class="btn btn-danger w-100">
+                    <span class="bi bi-cart2"></span>
+                        Add to Cart
+                </button>
+            </div>
+        </div>
+        </main>
+        <div *ngIf="filteredProducts.length === 0" class="text-center w-100 mt-3">
+            <h4 class="text-danger mb-4">No products under &#8377; {{ selectedPrice }}</h4>
+        </div>
+    
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+  
+            <div class="modal-header bg-warning text-black">
+                <h5 class="modal-title" id="cartModalLabel">Your Cart Items</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+  
+        <div class="modal-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Preview</th>
+                <th>Price</th>
+                <th>Trash</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of CartItems">
+                <td>{{ item.title }}</td>
+                <td><img [src]="item.image" width="50" height="50"></td>
+                <td>{{ item.price }}</td>
+                <td><button class="btn btn-danger" (click)="DeleteFromCart(item)"><span class="bi bi-trash-fill"></span></button></td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <div class="text-end mt-3">
+            <h5>Total Items: {{ CartItems.length }}</h5>
+            <h5 class="text-primary">Total Amount: &#8377; {{ GetTotalAmount() }}</h5>
+          </div>
+        </div>
+  
+        <div class="modal-footer">
+          <button class="btn btn-success" data-bs-dismiss="modal">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </section>
+    <footer>
+        <div>
+          <h2>Shopper.</h2>
+          <span class="bi bi-facebook"></span>
+          <span class="bi bi-twitter"></span>
+          <span class="bi bi-instagram"></span>
+          <span class="bi bi-youtube"></span>
+        </div>
+        <div>
+          <h2>SUPPORT</h2>
+          <ul>
+            <li>Contact Us</li>
+            <li>FAQs</li>
+            <li>Size Guide</li>
+            <li>Shipping & Returns</li>
+          </ul>
+        </div>
+        <div>
+          <h2>SHOP</h2>
+          <ul>
+            <li>Men's Shopping</li>
+            <li>Women's Shopping</li>
+            <li>Kid's Shopping</li>
+            <li>Discounts</li>
+          </ul>
+        </div>
+        <div>
+          <h2>OUR COMPANY</h2>
+          <ul>
+            <li>Our Story</li>
+            <li>Careers</li>
+            <li>Terms & Conditions</li>
+            <li>Privacy & Cookie Policy</li>
+          </ul>
+        </div>
+        <div>
+          <h2>CONTACT</h2>
+          <ul>
+            <li>1-202-555-0105</li>
+            <li>1-202-555-0106</li>
+            <li>{{ 'help@shopper.com' }}</li>
+          </ul>
+        </div>
+      </footer> 
+      <div class="footer-bottom d-flex justify-content-between align-items-center text-light py-3 px-4 w-100" style="background-color: black;">
+        <div>
+          <p class="mb-0">&copy; 2025 All rights reserved &nbsp; | &nbsp; Designed by Hasen Ali.</p>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <h5 class="mb-0 me-2">Connect with me:</h5>
+          <a href="https://github.com/CodeWithHasen" target="_blank" class="text-white">
+            <span class="bi bi-github fs-4"></span>
+          </a>
+          <a href="https://www.linkedin.com/in/hasen-ali-5a672991/" target="_blank" class="text-white">
+            <span class="bi bi-linkedin fs-4"></span>
+          </a>
+          <a href="https://www.youtube.com/@CodeWithHasen" target="_blank" class="text-white">
+            <span class="bi bi-youtube fs-4"></span>
+          </a>
+          <a href="https://x.com/Ali786Hasen" target="_blank" class="text-white">
+            <span class="bi bi-twitter fs-4"></span>
+          </a>
+          <a href="https://www.instagram.com/ali786.hasen/" target="_blank" class="text-white">
+            <span class="bi bi-instagram fs-4"></span>
+          </a>
+        </div>
+      </div>              
+</div>

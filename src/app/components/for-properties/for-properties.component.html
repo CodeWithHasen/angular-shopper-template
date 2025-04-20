@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <h2>Product Details <button (click)="AddMore()" class="btn btn-danger">Add More</button></h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Index</th>
+                <th>Odd</th>
+                <th>Even</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr [class.odd]="o" [class.even]="e" *ngFor="let item of products; let i=index; let o=odd; let e=even; let f=first; let l=last; trackBy:TrackChange">
+                <td>{{item.Name}}</td>
+                <td>{{item.Price}}</td>
+                <td>{{i}}</td>
+                <td>{{o}}</td>
+                <td>{{e}}</td>
+                <td>{{f}}</td>
+                <td>{{l}}</td>
+                <td>
+                    <button (click)="DeleteClick(i)" class="btn btn-danger">
+                        <span class="bi bi-trash-fill"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

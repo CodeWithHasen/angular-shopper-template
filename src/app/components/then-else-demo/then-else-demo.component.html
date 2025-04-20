@@ -1,0 +1,9 @@
+<div class="container-fluid">
+    <div *ngIf="false; then trueBlock else falseBlock"></div>
+    <ng-template #trueBlock>
+        Container to display on condition true.
+    </ng-template>
+    <ng-template #falseBlock>
+        Container to display on condition false.
+    </ng-template>
+</div>

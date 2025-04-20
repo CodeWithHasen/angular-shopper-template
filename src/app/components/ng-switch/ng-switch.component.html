@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <h2>Product Details</h2>
+    <div class="row">
+        <nav class="col-2">
+            <div class="mb-2">
+                <img (mouseover)="ChangeView('View1')" src="assets/View1.PNG" class="border border-2 border-primary" width="50" height="50">
+            </div>
+            <div class="mb-2">
+                <img (mouseover)="ChangeView('View2')" src="assets/View2.PNG" class="border border-2 border-primary" width="50" height="50">
+            </div>
+            <div class="mb-2">
+                <img (mouseover)="ChangeView('View3')" src="assets/View3.PNG" class="border border-2 border-primary" width="50" height="50">
+            </div>
+            <div class="mb-2">
+                <img (mouseover)="ChangeView('View4')" src="assets/View4.PNG" class="border border-2 border-primary" width="50" height="50">
+            </div>
+            <div class="mb-2">
+                <img (mouseover)="ChangeView('View5')" src="assets/View5.PNG" class="border border-2 border-primary" width="50" height="50">
+            </div>
+        </nav>
+        <main class="col-10">
+            <div [ngSwitch]="ViewName">
+                <div *ngSwitchCase="'View1'">
+                    <img src="assets/View1.PNG" width="400" height="400">
+                </div>
+                <div *ngSwitchCase="'View2'">
+                    <img src="assets/View2.PNG" width="400" height="400">
+                </div>
+                <div *ngSwitchCase="'View3'">
+                    <img src="assets/View3.PNG" width="400" height="400">
+                </div>
+                <div *ngSwitchCase="'View4'">
+                    <img src="assets/View4.PNG" width="400" height="400">
+                </div>
+                <div *ngSwitchCase="'View5'">
+                    <img src="assets/View5.PNG" width="400" height="400">
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
